@@ -27,10 +27,8 @@ function removefn(el,index){
     localStorage.setItem("coffee",JSON.stringify(bucketArr));
     window.location.reload()
 }
-
-// let total_price=document.getElementById("total_amount")
-// let sum=0;
-// for(let i=0;bucketArr.length;i++){
-//     sum=sum+bucketArr.price
-// }
-// console.log(sum)
+let total_sum=bucketArr.reduce(function(sum,el){
+    return sum+Number(el.price)
+},0)
+let total_price=document.getElementById("total_amount")
+total_price.innerHTML=total_sum
